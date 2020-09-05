@@ -22,7 +22,7 @@ const GlobalProvider = ({ children }) => {
     //Action
     const getToDos = async () => {
       try {
-        const res = await axios.get('/api/todos');
+        const res = await axios.get('https://powerful-eyrie-34001.herokuapp.com/api/todos');
 
         dispatch({
           type: 'GET_TODOS', 
@@ -45,7 +45,7 @@ const GlobalProvider = ({ children }) => {
       }
 
       try {
-        const res = await axios.post('/api/todos', toDo, option);
+        const res = await axios.post('https://powerful-eyrie-34001.herokuapp.com/api/todos', toDo, option);
         dispatch({
           type: 'ADD_TODO', 
           payload: res.data.data
@@ -61,11 +61,11 @@ const GlobalProvider = ({ children }) => {
 
     const deleteAll = async () => {
         try {
-          const res = await axios.delete('/api/todos');
+          const res = await axios.delete('https://powerful-eyrie-34001.herokuapp.com/api/todos');
   
           dispatch({
-            type: 'DELETE_ALL'
-            
+            type: 'DELETE_ALL',
+            payload: res.data.data
           });
   
         } catch (err) {
@@ -78,7 +78,7 @@ const GlobalProvider = ({ children }) => {
 
     const deleteToDo = async (id) => {
         try {
-          const res = await axios.delete(`/api/todos/${id}`);
+          const res = await axios.delete(`https://powerful-eyrie-34001.herokuapp.com/api/todos/${id}`);
   
           dispatch({
             type: 'DELETE_TODO', 
@@ -95,7 +95,7 @@ const GlobalProvider = ({ children }) => {
 
     const editToDo = async (id, update) => {
       try {
-        const res = await axios.put(`/api/todos/${id}`, update);
+        const res = await axios.put(`https://powerful-eyrie-34001.herokuapp.com/api/todos/${id}`, update);
 
         dispatch({
           type: 'EDIT_TODO', 

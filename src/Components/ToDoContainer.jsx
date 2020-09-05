@@ -16,8 +16,6 @@ export default function ToDoContainer() {
         if(loading)  return  (
             <img src={spinner} alt='loading' className='d-block mx-auto' />
           );
-            console.log(toDos);
-            console.log(toDos.length);
           return toDos
                 .filter(filterOptions[filter])
                 .map(item => (<ToDo toDo={item} key={item._id} />));
@@ -43,7 +41,7 @@ export default function ToDoContainer() {
             </div>
             <div className="listWrapper"> 
                 <ul className="toDos p-0">
-                    {toDos.length === 0 ? <p>Yeah nothing to do</p> : renderToDos(toDos)}
+                    {!toDos? <p>Yeah nothing to do</p> : renderToDos(toDos)}
                 </ul>
             </div>
       </div>
