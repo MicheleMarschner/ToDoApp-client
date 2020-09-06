@@ -1,35 +1,98 @@
-import React, {useState, useContext} from 'react';
-import { GlobalContext } from '../Context/GlobalState';
+import React, { useState, useContext } from "react";
+import { GlobalContext } from "../Context/GlobalState";
+import { FaTrash } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
+import { DatePicker } from "react-rainbow-components";
+import FloatingLabelInput from "./Styling/FloatingLabel";
+
+const initialState = { date: new Date() };
 
 export default function AddToDo() {
-    const [newToDo, setNewToDo] = useState({});
-    const { addToDo, deleteAll } = useContext(GlobalContext);
+  const [newToDo, setNewToDo] = useState({});
+  const [dueDate, setdueDate] = useState(initialState);
+  const { addToDo, deleteAll } = useContext(GlobalContext);
 
-    const handleChange = (e) => {
-       setNewToDo({...newToDo, [e.target.name]: e.target.value});
-    }
+  const handleChange = (name, newValue) => {
+    setNewToDo({ ...newToDo, [name]: newValue });
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-        if(newToDo === "") {
-            return window.alert("The usefulness of a cup is in its emptiness (old chinese proverb). And the usefulness of a todo lies in its text! Please type something in the input field.");
-        }
+    if(!newToDo.title) return window.alert(
+        "The usefulness of a cup is in its emptiness (old chinese proverb). And the usefulness of a todo lies in its text! Please type something in the input field."
+      );
+    setNewToDo({ ...newToDo, markAsCompleted: "false", dueDate: dueDate });
+    let toDo = newToDo;
+    addToDo(toDo);
 
-        setNewToDo({...newToDo, "markAsCompleted": "false"})
-        let toDo = newToDo;
-        addToDo(toDo);
+    setNewToDo({});
+    setdueDate(initialState);
+  };
+
+  return (
+    <form className="pt-3 newToDo w-100" onSubmit={handleSubmit}>
+        <div className="d-flex align-items-end justify-content-between w-100 px-5"> 
+        <FloatingLabelInput
+          placeholder="Enter a title"
+          name="title"
+          style={{width: "20rem"}}
+          value={newToDo.title || ""}
+          onChange={(name, newValue) => {
+            handleChange(name, newValue);
+          }}
+          required={true}
+        />
+        <FloatingLabelInput
+          placeholder="Enter a text"
+          name="text"
+          style={{width: "30rem"}}
+          value={newToDo.text || ""}
+          onChange={(name, newValue) => {
+            handleChange(name, newValue);
+          }}
+        />
+      <div className="rainbow-align-content_center rainbow-m-vertical_large rainbow-p-horizontal_small rainbow-m_auto">
+        <DatePicker
+          value={dueDate.date}
+          minDate={new Date(1900, 0, 4)}
+          maxDate={new Date(2020, 9, 1)}
+          onChange={(value) => setdueDate({ date: value })}
+        />
+        </div>
+        <button
+          className="btn primary-button btn-primary-color btn-lg rounded-pill"
+          type="submit"
+        >
+          <strong>Add</strong> <FaPlus />
+        </button>
         
-        setNewToDo({});
-    }
-
-    return (
-        <form className="pt-3 newToDo" onSubmit={handleSubmit}>
-            <input type="text" className="form-control my-4 rounded-pill" name="text" placeholder="Write your ToDo here" value={newToDo.text || ""} onChange={handleChange}/>
-            <div className="ButtonGroup text-center">
-                <button className="btn primary-button mr-3 hvr-ripple-out" type="submit">Add</button>
-                <button className="btn deleteAll primary-button hvr-ripple-out" type="button" onClick={deleteAll}>Delete All</button>
-            </div>
-        </form>
-    )
+      </div>
+      
+    </form>
+  );
 }
+
+
+
+/*<input
+        type="text"
+        className="form-control rounded-pill"
+        name="title"
+        placeholder="Write your ToDo here"
+        value={newToDo.text || ""}
+        onChange={handleChange}
+      />*/
+
+
+      /*
+      <div className="text-center mt-3 justify-content-center">
+        
+        <button
+          className="btn primary-button btn-primary-color btn-lg rounded-pill deleteAll"
+          type="button"
+          onClick={deleteAll}
+        >
+          Delete All <FaTrash />
+        </button>
+      </div>*/
