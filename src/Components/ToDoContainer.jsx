@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import ToDo from "./ToDo.jsx";
 import { Spinner } from "react-rainbow-components";
+import { FaTrash } from "react-icons/fa";
 
 import { GlobalContext } from "../Context/GlobalState";
 
 export default function ToDoContainer() {
-  const { toDos, getToDos, loading } = useContext(GlobalContext);
+  const { toDos, getToDos, loading, deleteAll } = useContext(GlobalContext);
   const [filter, setFilter] = useState("All");
 
   useEffect(() => {
@@ -27,8 +28,26 @@ export default function ToDoContainer() {
   };
 
   return (
-    <div className="container container-right overflow-auto h-100">
-      <div class="accordion accordion-faq mb-5" id="helpAccordion">
+    <div className="container container-right overflow-auto h-100 py-5">
+        <div className="d-flex justify-content-between mb-3">
+        
+        <button
+          className="btn primary-button btn-primary-color btn-sm rounded-pill deleteAll"
+          type="button"
+          onClick={deleteAll}
+        >
+          Delete All <FaTrash />
+        </button>
+        <button className="btn primary-button btn-primary-color btn-sm rounded-pill dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter
+                </button>
+                <div className="dropdown-menu" onClick={(e) => setFilter(e.target.innerHTML)} aria-labelledby="dropdownMenuButton">
+                    <a className="dropdown-item all active" href="#">All</a>
+                    <a className="dropdown-item uncompleted" href="#">Uncompleted</a>
+                    <a className="dropdown-item completed" href="#">Completed</a>
+                </div>
+      </div>
+      <div className="accordion accordion-faq mb-5" id="helpAccordion">
         {!toDos ? <p>Yeah nothing to do</p> : renderToDos(toDos)}
       </div>
     </div>

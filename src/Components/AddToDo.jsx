@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../Context/GlobalState";
-import { FaTrash } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import { DatePicker } from "react-rainbow-components";
 import FloatingLabelInput from "./Styling/FloatingLabel";
@@ -10,7 +9,7 @@ const initialState = { date: new Date() };
 export default function AddToDo() {
   const [newToDo, setNewToDo] = useState({});
   const [dueDate, setdueDate] = useState(initialState);
-  const { addToDo, deleteAll } = useContext(GlobalContext);
+  const { addToDo } = useContext(GlobalContext);
 
   const handleChange = (name, newValue) => {
     setNewToDo({ ...newToDo, [name]: newValue });
@@ -61,7 +60,7 @@ export default function AddToDo() {
         />
         </div>
         <button
-          className="btn primary-button btn-primary-color btn-lg rounded-pill"
+          className="btn primary-button btn-primary-color btn-sm rounded-pill"
           type="submit"
         >
           <strong>Add</strong> <FaPlus />
@@ -85,14 +84,4 @@ export default function AddToDo() {
       />*/
 
 
-      /*
-      <div className="text-center mt-3 justify-content-center">
-        
-        <button
-          className="btn primary-button btn-primary-color btn-lg rounded-pill deleteAll"
-          type="button"
-          onClick={deleteAll}
-        >
-          Delete All <FaTrash />
-        </button>
-      </div>*/
+      

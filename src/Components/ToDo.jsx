@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FaPencilAlt } from "react-icons/fa";
-import { FaTrash } from "react-icons/fa";
+import { FaPencilAlt,FaTrash } from "react-icons/fa";
 
 import { GlobalContext } from "../Context/GlobalState";
 
@@ -23,11 +22,10 @@ export default function ToDo({ toDo }) {
   };
 
   return (
-    <div class="toDo row card accordion-faq-item" key={toDo._id}>
-      <div class="accordion-faq-item-heading d-flex px-3">
+    <div className="toDo card d-flex flex-column accordion-faq-item" key={toDo._id}>
+      <div className="accordion-faq-item-heading card-header d-flex px-3 justify-content-between align-items-center">
         {" "}
-        <div className="inputContainer col-1">
-            
+        <div className="inputContainer d-flex align-items-center">
           <input
             id="check"
             type="checkbox"
@@ -44,47 +42,49 @@ export default function ToDo({ toDo }) {
           </label>
           {showIconTitle && <FaPencilAlt style={{ color: "#C51162" }} />}
         </div>
-        <div className="col-1 p-0">
+        <div className="float-right">
+          <label>Datum</label>
           <button
-            className="deleteToDoBtn float-right icon-button"
+            className="deleteToDoBtn icon-button"
             onClick={() => deleteToDo(toDo._id)}
           >
             <FaTrash />
           </button>
-        </div>{" "}
-        <a
-          class="card-header collapsed"
-          id="helpHeadingOne"
-          data-toggle="collapse"
-          data-target="#helpCollapseOne"
-          aria-expanded="false"
-          aria-controls="helpCollapseOne"
-          href="javascript:void(0);"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-chevron-down accordion-faq-item-heading-arrow"
+
+          <a
+            className=" collapsed"
+            id="helpHeadingOne"
+            data-toggle="collapse"
+            data-target={`#helpCollapseOne${toDo._id}`}
+            aria-expanded="false"
+            aria-controls="helpCollapseOne"
+            href="#"
           >
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>{" "}
-        </a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--primary-color)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="feather feather-chevron-down accordion-faq-item-heading-arrow"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>{" "}
+          </a>
+        </div>{" "}
       </div>
 
       <div
-        class="collapse"
-        id="helpCollapseOne"
+        className="collapse"
         aria-labelledby="helpHeadingOne"
         data-parent="#helpAccordion"
+        id={`helpCollapseOne${toDo._id}`}
       >
-        <div class="card-body border-bottom">
+        <div className="card-body border-bottom bg-primary-soft">
           <label
             contentEditable="true"
             onInput={(e) => handleFocusOut(e)}

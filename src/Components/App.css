@@ -99,6 +99,12 @@ body {
   line-height: 1.5;
 }
 
+.primary {
+  color: var(--primary-color);
+}
+
+
+
 
 /*++++++++++++++++++++++++ */
 
@@ -194,6 +200,20 @@ body {
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.5rem;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 0.5rem;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+  padding: 0.25rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
 }
 
 
@@ -477,4 +497,65 @@ table {
 .accordion-faq .accordion-faq-item .card-header.collapsed .accordion-faq-item-heading .accordion-faq-item-heading-arrow {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
+}
+
+/********************************************************/
+
+.dropdown-menu a:hover {
+  background-color: var(--primary-soft) !important;
+}
+
+.dropdown-menu a:focus {
+  background-color: var(--primary-soft) !important;
+  color: black;
+}
+
+.dropdown-menu a:active {
+  background-color: var(--primary-soft) !important;
+}
+
+.bg-primary-soft {
+  background-color: var(--primary-soft) !important;
+}
+
+
+
+
+
+
+
+
+
+/******************   weather card    ********************************/
+
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.35rem;
+}
+.card > hr {
+  margin-right: 0;
+  margin-left: 0;
+}
+.card > .list-group:first-child .list-group-item:first-child {
+  border-top-left-radius: 0.35rem;
+  border-top-right-radius: 0.35rem;
+}
+.card > .list-group:last-child .list-group-item:last-child {
+  border-bottom-right-radius: 0.35rem;
+  border-bottom-left-radius: 0.35rem;
+}
+
+
+.list-group-item:hover {
+  background-color: var(--primary-soft);
 }
