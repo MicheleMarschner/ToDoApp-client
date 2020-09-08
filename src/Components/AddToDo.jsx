@@ -21,9 +21,8 @@ export default function AddToDo() {
     if(!newToDo.title) return window.alert(
         "The usefulness of a cup is in its emptiness (old chinese proverb). And the usefulness of a todo lies in its text! Please type something in the input field."
       );
-    setNewToDo({ ...newToDo, markAsCompleted: "false", dueDate: dueDate });
-    let toDo = newToDo;
-    addToDo(toDo);
+     
+    addToDo({ ...newToDo, markAsCompleted: "false", dueDate: dueDate.date });
 
     setNewToDo({});
     setdueDate(initialState);
@@ -56,7 +55,7 @@ export default function AddToDo() {
           value={dueDate.date}
           minDate={new Date(1900, 0, 4)}
           maxDate={new Date(2020, 9, 1)}
-          onChange={(value) => setdueDate({ date: value })}
+          onChange={(value) => setdueDate({ date: value }) }
         />
         </div>
         <button

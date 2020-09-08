@@ -1,41 +1,68 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Spinner } from "react-rainbow-components";
 import { WeatherContext } from "../Context/Weather/WeatherState";
-import { 
-    FaThermometerHalf, FaMapMarker, FaCloud, FaSun, FaCloudRain } from "react-icons/fa";
+import {
+  FaThermometerHalf,
+  FaMapMarker,
+  FaCloud,
+  FaSun,
+  FaCloudRain,
+} from "react-icons/fa";
+import getCurrentPosition from "../utils/geoLocation";
+import formatWeather from "../utils/formatWeather";
+import axios from "axios";
+
+
 
 export default function Weather() {
-  const { getLocation, loading, data } = useContext(WeatherContext);
-    console.log(data);
+  //const { getWeather, loading, weather } = useContext(WeatherContext);
+  const [weather, setWeather] = useState(null);
+  const [ loading, setLoading] = useState(true);
   useEffect(() => {
-    getLocation();
+    getWeather();
   }, []);
 
+  const getWeather = async () => {
+    try {
+      const { coords } = await getCurrentPosition();
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=38e50188c2725443b0bfd62dc751fa5f&units=imperial`;
+      const res = await axios.get(url);
+      const data = formatWeather(res.data);
+      setWeather(data);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const weatherIcon = (weather) => {
-      switch (weather) {
-        case "Sun": return <FaSun className="fa-fw mr-2 primary"/>;
-        case "Rain": return <FaCloudRain className="fa-fw mr-2 primary"/>;
-        default: return <FaCloud className="fa-fw mr-2 primary"/>;
-      }
-     
-      
-  }
+    switch (weather) {
+      case "Sun":
+        return <FaSun className="fa-fw mr-2 primary" />;
+      case "Rain":
+        return <FaCloudRain className="fa-fw mr-2 primary" />;
+      default:
+        return <FaCloud className="fa-fw mr-2 primary" />;
+    }
+  };
 
   return (
-    <div className="container container-right overflow-auto h-100 py-5">
+    <div>
       {loading ? (
         <Spinner />
       ) : (
-        <div className="card">
+        <div className="card mt-5">
           <div className="list-group list-group-flush medium">
             <div className="list-group-item list-group-item-action">
-                <FaMapMarker className="fa-fw mr-2 primary"/> {data.location}
+              <FaMapMarker className="fa-fw mr-2 primary" /> {weather.location}
             </div>
             <div className="list-group-item list-group-item-action">
-            <FaThermometerHalf className="fa-fw mr-2 primary"/> {data.temperature}
+              
+              <FaThermometerHalf className="fa-fw mr-2 primary" />{" "}
+              {weather.temperature}
             </div>
             <div className="list-group-item list-group-item-action">
-            {weatherIcon(data.description)} {data.description}
+              {weatherIcon(weather.description)} {weather.description}
             </div>
           </div>
         </div>

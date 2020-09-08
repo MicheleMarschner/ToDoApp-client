@@ -1,19 +1,30 @@
 import React, { useContext, useState } from "react";
 import { FaPencilAlt,FaTrash } from "react-icons/fa";
+import moment from "moment";
 
 import { GlobalContext } from "../Context/GlobalState";
+import { useEffect } from "react";
 
 export default function ToDo({ toDo }) {
   const { deleteToDo, editToDo } = useContext(GlobalContext);
+  const [editedToDo, setEditedToDo] = useState(null);
   const [showIconTitle, setShowIconTitle] = useState(false);
   const [showIconText, setShowIconText] = useState(false);
 
+useEffect(() => {
+    editToDo(toDo._id, editedToDo);
+}, [editedToDo])
+
+
   const handleFocusOut = (e) => {
     const text = e.target.innerHTML;
+    const key = e.target.parentNode.id; 
+   console.log(key);
     if (!text) {
       return alert("Please add some text!");
     }
-    editToDo(toDo._id, { text: text });
+    setEditedToDo({...editedToDo, [key] : text });
+    console.log(editedToDo);
   };
 
   const markAsCompleted = (e) => {
@@ -25,7 +36,7 @@ export default function ToDo({ toDo }) {
     <div className="toDo card d-flex flex-column accordion-faq-item" key={toDo._id}>
       <div className="accordion-faq-item-heading card-header d-flex px-3 justify-content-between align-items-center">
         {" "}
-        <div className="inputContainer d-flex align-items-center">
+        <div id="title" className="inputContainer d-flex align-items-center">
           <input
             id="check"
             type="checkbox"
@@ -34,16 +45,17 @@ export default function ToDo({ toDo }) {
           />
           <label
             contentEditable="true"
+            name="title"
             onInput={(e) => handleFocusOut(e)}
             onMouseEnter={() => setShowIconTitle(true)}
             onMouseLeave={() => setShowIconTitle(false)}
           >
-            {toDo.text}
+            {toDo.title}
           </label>
           {showIconTitle && <FaPencilAlt style={{ color: "#C51162" }} />}
         </div>
         <div className="float-right">
-          <label>Datum</label>
+          <label>{moment(toDo.dueDate).format("MMM Do YY")}</label>
           <button
             className="deleteToDoBtn icon-button"
             onClick={() => deleteToDo(toDo._id)}
@@ -84,9 +96,10 @@ export default function ToDo({ toDo }) {
         data-parent="#helpAccordion"
         id={`helpCollapseOne${toDo._id}`}
       >
-        <div className="card-body border-bottom bg-primary-soft">
+        <div id="text" className="card-body border-bottom bg-primary-soft">
           <label
             contentEditable="true"
+            name="text"
             onInput={(e) => handleFocusOut(e)}
             onMouseEnter={() => setShowIconText(true)}
             onMouseLeave={() => setShowIconText(false)}
