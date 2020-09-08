@@ -36,10 +36,10 @@ export default function ToDoContainer() {
           type="button"
           onClick={deleteAll}
         >
-          Delete All <FaTrash />
+          <strong>Delete All</strong> <FaTrash />
         </button>
         <button className="btn primary-button btn-primary-color btn-sm rounded-pill dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Filter
+                    <strong>Filter</strong>
                 </button>
                 <div className="dropdown-menu" onClick={(e) => setFilter(e.target.innerHTML)} aria-labelledby="dropdownMenuButton">
                     <a className="dropdown-item all active" href="#">All</a>
@@ -47,8 +47,8 @@ export default function ToDoContainer() {
                     <a className="dropdown-item completed" href="#">Completed</a>
                 </div>
       </div>
-      <div className="accordion accordion-faq mb-5" id="helpAccordion">
-        {!toDos ? <p>Yeah nothing to do</p> : renderToDos(toDos)}
+      <div className="accordion accordion-faq my-5" id="helpAccordion">
+        {toDos.length === 0 && !loading ? <p>Yeah nothing to do</p> : renderToDos(toDos)}
       </div>
     </div>
   );

@@ -31,7 +31,7 @@ function App() {
               className="icon-button"
               type="button"
               ref={toggle}
-            >
+            > <strong>Add Task  </strong>
               {collapsed ? (
                 <FaArrowDown id="arrowDown" />
               ) : (

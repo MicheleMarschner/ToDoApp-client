@@ -95,19 +95,20 @@ const GlobalProvider = ({ children }) => {
 
     const editToDo = async (id, update) => {
       try {
-        const res = await axios.put(`http://localhost:5000/api/todos/${id}`, update);
+        const res = await axios.put(`https://powerful-eyrie-34001.herokuapp.com/api/todos/${id}`, update);
 
         dispatch({
           type: 'EDIT_TODO', 
           payload: res.data.data
         });
-        console.log("update" + res.data.data.title);
+        //console.log("update" + res.data.data.title);
 
       } catch (err) {
-        dispatch({
+        console.log(err);
+       /* dispatch({
           type: 'TODOS_ERROR', 
           payload: err.response.data.error
-        });
+        });*/
       }
     }
 
