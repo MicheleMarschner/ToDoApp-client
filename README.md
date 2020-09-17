@@ -1,5 +1,5 @@
 
-# ToDo App - Server (MERN Stack)
+# ToDo App - Client (MERN Stack)
 
 ## Goal
 Creating a Full-Stack App that successfully integrates frontend technologies with a customized backend and third party apis. 
@@ -12,8 +12,8 @@ Creating a Full-Stack App that successfully integrates frontend technologies wit
   --> I used the following Expense-Tracker youtube-video as an initial reference: [Part1](https://www.youtube.com/watch?v=XuFDcZABiDQ) & [Part2](https://www.youtube.com/watch?v=KyWaXA_NvT0)
 
 
-## Screenshots
-*Coming soon*
+## Live Demo
+Click [here](https://todo-app-db1295.netlify.app)
 
 Click [here](https://github.com/MicheleMarschner/ToDoApp-server) to see the repo for the corresponding backend (ToDoApp-server). 
 
