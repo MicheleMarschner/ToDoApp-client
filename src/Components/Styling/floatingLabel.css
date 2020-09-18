@@ -1,0 +1,39 @@
+/*+++++++++++++++++++++  floating label ++++++++++++++++++++++*/
+
+.floatingLabelInput {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.floatingLabelInput label {
+  position: absolute;
+  top: -1.4rem;
+  left: 1rem;
+  font-size: 1rem;
+  color: blue;
+  transition: all 0.2s linear;
+  opacity: 0;
+}
+
+.floatingLabelInput label.on {
+  opacity: 1;
+  color: #474747;
+}
+
+.floatingLabelInput input {
+  font-size: 1rem;
+}
+/*++++++++++++++++++++++++ */
+
+input.errorInput {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 0.0625rem var(--danger);
+}
+
+.floatingLabelInput label.errorInput {
+  opacity: 1;
+  color: var(--danger);
+  font-size: 0.8rem;
+}

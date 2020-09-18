@@ -1,8 +1,9 @@
-import React, { useState, useContext } from "react";
-import { GlobalContext } from "../Context/GlobalState";
-import { FaPlus } from "react-icons/fa";
-import { DatePicker } from "react-rainbow-components";
-import FloatingLabelInput from "./Styling/FloatingLabel";
+import React, { useState, useContext } from 'react';
+import { GlobalContext } from '../Context/GlobalState';
+import { FaPlus } from 'react-icons/fa';
+import { DatePicker } from 'react-rainbow-components';
+import FloatingLabelInput from './Styling/FloatingLabel';
+import './Styling/floatingLabel.css';
 
 const initialState = { date: new Date() };
 
@@ -11,14 +12,15 @@ export default function AddToDo() {
   const [dueDate, setdueDate] = useState(initialState);
   const { addToDo } = useContext(GlobalContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
-    if(!newToDo.title) return window.alert(
-        "The usefulness of a cup is in its emptiness (old chinese proverb). And the usefulness of a todo lies in its text! Please type something in the input field."
+    if (!newToDo.title)
+      return window.alert(
+        'The usefulness of a cup is in its emptiness (old chinese proverb). And the usefulness of a todo lies in its text! Please type something in the input field.'
       );
-     
-    addToDo({ ...newToDo, markAsCompleted: "false", dueDate: dueDate.date });
+
+    addToDo({ ...newToDo, markAsCompleted: 'false', dueDate: dueDate.date });
 
     setNewToDo({});
     setdueDate(initialState);
@@ -27,45 +29,41 @@ export default function AddToDo() {
     setNewToDo({ ...newToDo, [name]: newValue });
   };
   return (
-    <form className="pt-3 newToDo w-100" onSubmit={handleSubmit}>
-        <div className="d-flex align-items-end justify-content-between w-100 px-5"> 
+    <form className='pt-3 newToDo w-100' onSubmit={handleSubmit}>
+      <div className='d-flex align-items-end justify-content-between w-100 px-5'>
         <FloatingLabelInput
-          placeholder="Enter a title"
-          name="title"
-          style={{width: "20rem"}}
+          placeholder='Enter a title'
+          name='title'
+          style={{ width: '20rem' }}
           callback={handleFormChange}
-          value={newToDo.title || ""}
+          value={newToDo.title || ''}
           required={true}
         />
         <FloatingLabelInput
-          placeholder="Enter a text"
-          name="text"
-          style={{width: "30rem"}}
-          value={newToDo.text || ""}
+          placeholder='Enter a text'
+          name='text'
+          style={{ width: '30rem' }}
+          value={newToDo.text || ''}
           callback={handleFormChange}
         />
-      <div className="rainbow-align-content_center rainbow-m-vertical_large rainbow-p-horizontal_small rainbow-m_auto">
-        <DatePicker
-          value={dueDate.date}
-          minDate={new Date(1900, 0, 4)}
-          maxDate={new Date(2020, 9, 1)}
-          onChange={(value) => setdueDate({ date: value }) }
-        />
+        <div className='rainbow-align-content_center rainbow-m-vertical_large rainbow-p-horizontal_small rainbow-m_auto'>
+          <DatePicker
+            value={dueDate.date}
+            minDate={new Date(1900, 0, 4)}
+            maxDate={new Date(2020, 9, 1)}
+            onChange={value => setdueDate({ date: value })}
+          />
         </div>
         <button
-          className="btn primary-button btn-primary-color btn-sm rounded-pill"
-          type="submit"
+          className='btn primary-button btn-primary-color btn-sm rounded-pill'
+          type='submit'
         >
           <strong>Add</strong> <FaPlus />
         </button>
-        
       </div>
-      
     </form>
   );
 }
-
-
 
 /*<input
         type="text"
@@ -75,6 +73,3 @@ export default function AddToDo() {
         value={newToDo.text || ""}
         onChange={handleChange}
       />*/
-
-
-      
