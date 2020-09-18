@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 // create a floating label input
+
 export default function FloatingLabelInput({
   placeholder,
   name,
   value,
-  onChange,
+  callback,
   style,
   required = false,
 }) {
   const [stateLabel, setStateLabel] = useState({ className: "" });
   const [stateError, setStateError] = useState({ className: "" });
-
-  const handleInput = (e) => {
+  
+    const handleInput = (e) => {
     if (e.target.value !== "") {
       setStateLabel({ className: "on" });
       setStateError({ className: "" });
-      onChange(e.target.name, e.target.value);
+      callback(e.target.name, e.target.value);
     } else {
       setStateLabel({ className: "" });
+      callback(e.target.name, e.target.value);
     }
   };
 
@@ -44,6 +46,7 @@ export default function FloatingLabelInput({
           value={value}
           style={style}
           onBlur={handleFocusOut}
+          required={required}
         />
       </div>
     </div>

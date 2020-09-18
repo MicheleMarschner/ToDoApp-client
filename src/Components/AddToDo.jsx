@@ -11,10 +11,6 @@ export default function AddToDo() {
   const [dueDate, setdueDate] = useState(initialState);
   const { addToDo } = useContext(GlobalContext);
 
-  const handleChange = (name, newValue) => {
-    setNewToDo({ ...newToDo, [name]: newValue });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -27,7 +23,9 @@ export default function AddToDo() {
     setNewToDo({});
     setdueDate(initialState);
   };
-
+  const handleFormChange = (name, newValue) => {
+    setNewToDo({ ...newToDo, [name]: newValue });
+  };
   return (
     <form className="pt-3 newToDo w-100" onSubmit={handleSubmit}>
         <div className="d-flex align-items-end justify-content-between w-100 px-5"> 
@@ -35,10 +33,8 @@ export default function AddToDo() {
           placeholder="Enter a title"
           name="title"
           style={{width: "20rem"}}
+          callback={handleFormChange}
           value={newToDo.title || ""}
-          onChange={(name, newValue) => {
-            handleChange(name, newValue);
-          }}
           required={true}
         />
         <FloatingLabelInput
@@ -46,9 +42,7 @@ export default function AddToDo() {
           name="text"
           style={{width: "30rem"}}
           value={newToDo.text || ""}
-          onChange={(name, newValue) => {
-            handleChange(name, newValue);
-          }}
+          callback={handleFormChange}
         />
       <div className="rainbow-align-content_center rainbow-m-vertical_large rainbow-p-horizontal_small rainbow-m_auto">
         <DatePicker

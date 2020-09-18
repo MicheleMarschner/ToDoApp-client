@@ -34,9 +34,9 @@ useEffect(() => {
 
   return (
     <div className="toDo card d-flex flex-column accordion-faq-item" key={toDo._id}>
-      <div className="accordion-faq-item-heading card-header d-flex px-3 justify-content-between align-items-center">
+      <div className="accordion-faq-item-heading card-header px-3 m-0 row">
         {" "}
-        <div id="title" className="inputContainer d-flex align-items-center">
+        <div id="title" className="col d-flex no-wrap align-items-center">
           <input
             id="check"
             type="checkbox"
@@ -54,7 +54,7 @@ useEffect(() => {
           </label>
           {showIconTitle && <FaPencilAlt style={{ color: "#C51162" }} />}
         </div>
-        <div className="float-right">
+        <div className="col-3 d-flex align-items-center">
           <label>{moment(toDo.dueDate).format("MMM Do YY")}</label>
           <button
             className="deleteToDoBtn icon-button"

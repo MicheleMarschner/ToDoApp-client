@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto:wght@400;700&display=swap');
 :root {
   --blue: #007bff;
   --indigo: #5800e8;
-  --purple: #8661BC;
+  --purple: #8661bc;
   --pink: #e83e8c;
   --red: #e81500;
   --orange: #fd7e14;
@@ -14,36 +14,36 @@
   --gray: #686e73;
   --gray-dark: #323940;
   --primary-color: #884592;
-  --secondary: #00C9A6;
-  --highlight-color: #C51162;
-  --success: #2DDE98;
-  --info: #C51162;
-  --warning: #FFCC5B;
+  --secondary: #00c9a6;
+  --highlight-color: #c51162;
+  --success: #2dde98;
+  --info: #c51162;
+  --warning: #ffcc5b;
   --danger: #e81500;
   --light: #eff1f3;
   --dark: #1f272d;
   --black: #000;
   --white: #fff;
   --red: #e81500;
-  --orange: #FFA05E;
-  --dark_orange: #FF6C5F;
-  --yellow: #FFCC5B;
+  --orange: #ffa05e;
+  --dark_orange: #ff6c5f;
+  --yellow: #ffcc5b;
   --indigo: #5800e8;
-  --purple: #8661BC;
-  --red_violet: #C51162;
-  --light_pink: #E65682;
-  --pink: #FF4F81;
+  --purple: #8661bc;
+  --red_violet: #c51162;
+  --light_pink: #e65682;
+  --pink: #ff4f81;
   --light_purple: #884592;
   --teal: #00ba94;
   --cyan: #00cfd5;
-  --light_green: #2DDE98;
-  --green: #00C9A6;
-  --azure: #00AEFF;
-  --blue: #3369E7;
-  --light_blue: #1CC7D0;
+  --light_green: #2dde98;
+  --green: #00c9a6;
+  --azure: #00aeff;
+  --blue: #3369e7;
+  --light_blue: #1cc7d0;
   --dark_blue: #003666;
-  --green_blue: #008DA2;
-  --dark_green: #4D8076;
+  --green_blue: #008da2;
+  --dark_green: #4d8076;
   --orange-soft: #f2e1d5;
   --dark_orange-soft: #f2d6d5;
   --yellow-soft: #f2ead5;
@@ -74,8 +74,11 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "OpenSans", "Montserrat", Roboto, "Poppins", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-sans-serif: 'OpenSans', 'Montserrat', Roboto, 'Poppins',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
 }
 
 *,
@@ -93,7 +96,8 @@ html {
 
 body {
   margin: 0;
-  font-family: "OpenSans", "Montserrat", Roboto, "Poppins", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'OpenSans', 'Montserrat', Roboto, 'Poppins', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -103,12 +107,7 @@ body {
   color: var(--primary-color);
 }
 
-
-
-
 /*++++++++++++++++++++++++ */
-
-
 
 .form-control:focus {
   color: #686e73;
@@ -118,14 +117,9 @@ body {
   box-shadow: 0 0 0 0.0625rem var(--primary-color);
 }
 
-
-
-
-
 /*+++++++++++++++++++++  floating label ++++++++++++++++++++++*/
 
 .floatingLabelInput {
-  
   display: flex;
   position: relative;
   flex-direction: column;
@@ -133,39 +127,35 @@ body {
 }
 
 .floatingLabelInput label {
-    position: absolute;
-    top: -1.4rem;
-    left: 1rem;
-    font-size: 1rem;
-    color: blue;
-    transition: all 0.2s linear;
-    opacity: 0;
-  }
+  position: absolute;
+  top: -1.4rem;
+  left: 1rem;
+  font-size: 1rem;
+  color: blue;
+  transition: all 0.2s linear;
+  opacity: 0;
+}
 
-  .floatingLabelInput label.on {
-      opacity: 1;
-      color: #474747;
-    }
-  
+.floatingLabelInput label.on {
+  opacity: 1;
+  color: #474747;
+}
 
-  .floatingLabelInput input {
-    font-size: 1rem;
-  }
+.floatingLabelInput input {
+  font-size: 1rem;
+}
 /*++++++++++++++++++++++++ */
 
-  input.errorInput {
+input.errorInput {
   border-color: var(--danger);
   box-shadow: 0 0 0 0.0625rem var(--danger);
-  }
+}
 
-
-  .floatingLabelInput label.errorInput {
+.floatingLabelInput label.errorInput {
   opacity: 1;
   color: var(--danger);
   font-size: 0.8rem;
-  }
-
-
+}
 
 /*++++++++++++++++++++++++ */
 
@@ -190,38 +180,80 @@ body {
   border-color: var(--highlight-color);
 }
 
+.topbar-button {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: inset 2px solid var(--highlight-color);
+  color: var(--highlight-color);
+  text-align: center;
+  font-size: 1rem;
+  padding-bottom: 1em;
+  height: 6rem;
+  width: 2rem;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.2);
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  cursor: pointer;
+  z-index: 11;
+
+  transition: all 0.5s;
+}
+
+.topbar-button,
+.topbar-button:active,
+.topbar-button:focus {
+  outline: none;
+  color: var(--highlight-color);
+}
+
+.topbar-button:hover {
+  background-color: var(--highlight-color);
+  color: white;
+  border-color: var(--highlight-color);
+  height: 4.5rem;
+  width: 5.5rem;
+}
+
+.navbar {
+  position: relative;
+}
+
 /*++++++++++++++++++++++++ */
 
-
-
-
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg,
+.btn-group-lg > .btn {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.5rem;
 }
 
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg,
+.btn-group-lg > .btn {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.5rem;
 }
 
-.btn-sm, .btn-group-sm > .btn {
+.btn-sm,
+.btn-group-sm > .btn {
   padding: 0.25rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
 }
 
-
 .btn-block {
   display: block;
   width: 100%;
 }
-
 
 .btn-primary-color {
   color: #fff;
@@ -233,46 +265,46 @@ body {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
 }
-.btn-primary-color:focus, .btn-primary-color.focus {
+.btn-primary-color:focus,
+.btn-primary-color.focus {
   color: #fff;
   background-color: var(--primary-color);
   border-color: var(--primary-color);
   box-shadow: 0 0 0 0.2rem var(--primary-color);
 }
-.btn-primary-color.disabled, .btn-primary-color:disabled {
+.btn-primary-color.disabled,
+.btn-primary-color:disabled {
   color: #fff;
   background-color: var(--primary-color);
   border-color: var(--primary-color);
 }
-.btn-primary-color:not(:disabled):not(.disabled):active, .btn-primary-color:not(:disabled):not(.disabled).active, .show > .btn-primary-color.dropdown-toggle {
+.btn-primary-color:not(:disabled):not(.disabled):active,
+.btn-primary-color:not(:disabled):not(.disabled).active,
+.show > .btn-primary-color.dropdown-toggle {
   color: #fff;
   background-color: var(--primary-color);
   border-color: var(--primary-color);
 }
-.btn-primary-color:not(:disabled):not(.disabled):active:focus, .btn-primary-color:not(:disabled):not(.disabled).active:focus, .show > .btn-primary-color.dropdown-toggle:focus {
+.btn-primary-color:not(:disabled):not(.disabled):active:focus,
+.btn-primary-color:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary-color.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem var(--primary-color);
 }
-
-
-
-
-
 
 /*++++++++++++++++++++++++ */
 
 #topbar {
-	min-height: 150px;
-	max-height: 150px;
-	width: 100vw;
-	transition: all 0.3s;
+  min-height: 150px;
+  max-height: 150px;
+  width: 100vw;
+  transition: all 0.3s;
 }
 
 #topbar.active {
-	margin-top: -150px;
+  margin-top: -150px;
 }
 
 @media (max-width: 768px) {
-  
   /*#topbar {
 		margin-left: -150px;
 	}
@@ -280,7 +312,6 @@ body {
 		margin-left: 0;
 	}*/
 }
-
 
 /********************     DatePicker       ****************************/
 
@@ -302,10 +333,8 @@ table {
   width: 100%;
 }
 
-
-
 #input-4:focus,
-#modal-content-10  {
+#modal-content-10 {
   color: #686e73;
   background-color: #fff;
   border-color: var(--primary-color);
@@ -345,18 +374,15 @@ table {
 }
 
 .ejgmDM button,
-.ejgmDM button:hover  {
+.ejgmDM button:hover {
   color: var(--primary-color);
 }
-
 
 .ejgmDM button:focus,
 .ejgmDM button.active {
   outline-color: var(--primary-color);
   color: var(--primary-color);
 }
-
-
 
 /********************     Spinner               ****************************/
 
@@ -367,8 +393,7 @@ table {
 .hJtphO > div:nth-child(5),
 .hJtphO > div:nth-child(6),
 .hJtphO > div:nth-child(7),
-.hJtphO > div:nth-child(8)
- {
+.hJtphO > div:nth-child(8) {
   color: var(--primary-color) !important;
   width: 1.5rem !important;
   height: 1.5rem !important;
@@ -379,12 +404,9 @@ table {
   height: 4rem !important;
 }
 
-
-
-
 /************************************************/
 
-.toDo input[type="checkbox"] {
+.toDo input[type='checkbox'] {
   margin-right: 1rem;
   appearance: none;
   -webkit-appearance: none;
@@ -393,33 +415,46 @@ table {
   cursor: pointer;
 }
 
-.toDo input[type="checkbox"]:focus {
+.toDo input[type='checkbox']:focus {
   outline: none;
 }
 
-.toDo input[type="checkbox"]:after {
- width: 1.5rem;
+.toDo input[type='checkbox']:after {
+  width: 1.5rem;
   height: 1.5rem;
   border-radius: 1.7rem;
   border: 2px solid var(--highlight-color);
   background-color: transparent;
   display: block;
-  content: "";
+  content: '';
   float: left;
   margin-right: 5px;
 }
 
-.toDo label {
+.toDo #title label {
   margin: 0;
   text-overflow: ellipsis;
   display: inline-block;
   overflow: hidden;
-  width: 350px;
   white-space: nowrap;
   vertical-align: middle;
+  width: 90%;
+  min-width: 200px;
+  text-align: left;
 }
 
+.toDo #text label {
+  word-wrap: break-word;
+  overflow: hidden;
 
+  height: 90%;
+  max-height: 120px;
+  text-align: left;
+  white-space: initial;
+  margin: 0;
+  width: 100%;
+  vertical-align: middle;
+}
 
 .toDo label:hover {
   cursor: pointer;
@@ -429,7 +464,7 @@ table {
   outline: none;
 }
 
-.toDo input[type="checkbox"]:checked::after {
+.toDo input[type='checkbox']:checked::after {
   border-color: var(--highlight-color);
   color: var(--highlight-color);
   border-style: solid;
@@ -438,17 +473,13 @@ table {
   height: 15px;
   width: 7px;
   display: block;
-  content: "";
-  margin-right: 11px;
-  margin-left: 8px;
 }
 
-.toDo input[type="checkbox"]:checked + label{
+.toDo input[type='checkbox']:checked + label {
   text-decoration: line-through;
   color: gray;
   text-decoration-color: var(--highlight-color);
 }
-
 
 /************************************************/
 .accordion-faq {
@@ -467,9 +498,9 @@ table {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -482,23 +513,31 @@ table {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   color: #484d52;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.accordion-faq .accordion-faq-item .card-header .accordion-faq-item-heading .accordion-faq-item-heading-arrow {
+.accordion-faq
+  .accordion-faq-item
+  .card-header
+  .accordion-faq-item-heading
+  .accordion-faq-item-heading-arrow {
   color: #c5c9cc;
   -webkit-transition: -webkit-transform 0.1s ease-in-out;
   transition: -webkit-transform 0.1s ease-in-out;
   transition: transform 0.1s ease-in-out;
   transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
 }
-.accordion-faq .accordion-faq-item .card-header.collapsed .accordion-faq-item-heading .accordion-faq-item-heading-arrow {
+.accordion-faq
+  .accordion-faq-item
+  .card-header.collapsed
+  .accordion-faq-item-heading
+  .accordion-faq-item-heading-arrow {
   -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 /********************************************************/
@@ -520,14 +559,6 @@ table {
   background-color: var(--primary-soft) !important;
 }
 
-
-
-
-
-
-
-
-
 /******************   weather card    ********************************/
 
 .card {
@@ -536,7 +567,7 @@ table {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
   background-color: #fff;
@@ -557,11 +588,9 @@ table {
   border-bottom-left-radius: 0.35rem;
 }
 
-
 .list-group-item:hover {
   background-color: var(--primary-soft);
 }
-
 
 /**************************************/
 
