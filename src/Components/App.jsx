@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './App.css';
+import '../mediaQueries.css';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 
 import AddToDo from './AddToDo.jsx';

@@ -101,6 +101,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
+  overflow: hidden;
 }
 
 .primary {
@@ -273,6 +274,20 @@ body {
 	}*/
 }
 
+.newToDo__container {
+  max-width: 70rem;
+  margin: 0 auto;
+  margin-top: -1rem;
+}
+
+.newToDo__container > * {
+  margin-top: 1rem;
+}
+
+.newToDo__container > *:not(:last-child) {
+  padding-right: 1rem;
+}
+
 /********************     DatePicker       ****************************/
 
 .rainbow-m-horizontal_xx-large {
@@ -442,19 +457,21 @@ table {
 }
 
 /************************************************/
-.accordion-faq {
+
+.accordion {
   box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 39, 45, 0.15);
-  overflow: hidden;
+  max-height: 80vh;
+  overflow-y: auto;
 }
-.accordion-faq .card {
+.accordion .card {
   box-shadow: none;
 }
-.accordion-faq .card .card-header {
+.accordion .card .card-header {
   cursor: pointer;
   background-color: #fff;
   border-bottom: 1px solid #e3e5e7;
 }
-.accordion-faq .accordion-faq-title {
+.accordion .accordion-title {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -464,10 +481,10 @@ table {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.accordion-faq .accordion-faq-item .card-header {
+.accordion .accordion-item .card-header {
   text-decoration: none;
 }
-.accordion-faq .accordion-faq-item .card-header .accordion-faq-item-heading {
+.accordion .accordion-item .card-header .accordion-item-heading {
   width: 100%;
   margin-bottom: 0;
   display: -webkit-box;
@@ -480,22 +497,22 @@ table {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.accordion-faq
-  .accordion-faq-item
+.accordion
+  .accordion-item
   .card-header
-  .accordion-faq-item-heading
-  .accordion-faq-item-heading-arrow {
+  .accordion-item-heading
+  .accordion-item-heading-arrow {
   color: #c5c9cc;
   -webkit-transition: -webkit-transform 0.1s ease-in-out;
   transition: -webkit-transform 0.1s ease-in-out;
   transition: transform 0.1s ease-in-out;
   transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
 }
-.accordion-faq
-  .accordion-faq-item
+.accordion
+  .accordion-item
   .card-header.collapsed
-  .accordion-faq-item-heading
-  .accordion-faq-item-heading-arrow {
+  .accordion-item-heading
+  .accordion-item-heading-arrow {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }

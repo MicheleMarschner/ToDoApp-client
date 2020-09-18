@@ -29,12 +29,11 @@ export default function AddToDo() {
     setNewToDo({ ...newToDo, [name]: newValue });
   };
   return (
-    <form className='pt-3 newToDo w-100' onSubmit={handleSubmit}>
-      <div className='d-flex align-items-end justify-content-between w-100 px-5'>
+    <form className='pt-3  w-100' onSubmit={handleSubmit}>
+      <div className='newToDo__container d-flex align-items-end justify-content-center w-100 px-5'>
         <FloatingLabelInput
           placeholder='Enter a title'
           name='title'
-          style={{ width: '20rem' }}
           callback={handleFormChange}
           value={newToDo.title || ''}
           required={true}
@@ -42,7 +41,6 @@ export default function AddToDo() {
         <FloatingLabelInput
           placeholder='Enter a text'
           name='text'
-          style={{ width: '30rem' }}
           value={newToDo.text || ''}
           callback={handleFormChange}
         />
@@ -52,6 +50,7 @@ export default function AddToDo() {
             minDate={new Date(1900, 0, 4)}
             maxDate={new Date(2020, 9, 1)}
             onChange={value => setdueDate({ date: value })}
+            style={{ width: '10rem' }}
           />
         </div>
         <button

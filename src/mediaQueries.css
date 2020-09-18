@@ -1,0 +1,29 @@
+/* Bigger Laptop */
+@media (max-width: 1800px) {
+  .accordion {
+    max-height: 75vh;
+  }
+}
+
+/* Smaller Laptop */
+@media (max-width: 1440px) {
+}
+
+/*iPad Landscape */
+@media (max-width: 1024px) {
+  .newToDo__container {
+    flex-wrap: wrap;
+  }
+}
+
+/* iPad */
+@media (max-width: 800px) {
+}
+
+/* Bigger phone */
+@media (max-width: 500px) {
+}
+
+/* Smaller phone */
+@media (min-width: 320px) and (max-width: 375px) {
+}

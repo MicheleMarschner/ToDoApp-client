@@ -34,7 +34,7 @@ export default function Quote() {
         <div class='card post-preview post-preview-featured lift my-5'>
           <div class='card-body'>
             <div class='pt-2'>
-              <h5 class='card-title text-center'>{quote.title}</h5>
+              <h5 class='card-title text-center'>"</h5>
               <p class='card-text text-center'>{quote.quote}</p>
             </div>
             <hr />
@@ -42,9 +42,6 @@ export default function Quote() {
               <div class='post-preview-meta-details text-right'>
                 <div class='post-preview-meta-details-name'>
                   <i>{quote.author}</i>
-                </div>
-                <div class='post-preview-meta-details-date'>
-                  <i>{quote.date}</i>
                 </div>
               </div>
             </div>
