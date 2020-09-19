@@ -11,7 +11,7 @@ export default function ToDoContainer() {
 
   useEffect(() => {
     setTimeout(() => getToDos(), 1000);
-  }, []);
+  }, [toDos]);
 
   const renderToDos = toDos => {
     if (loading) return <Spinner />;
@@ -51,13 +51,13 @@ export default function ToDoContainer() {
           onClick={e => setFilter(e.target.innerHTML)}
           aria-labelledby='dropdownMenuButton'
         >
-          <a className='dropdown-item all active' href='#'>
+          <a className='dropdown-item all active' href='#0'>
             All
           </a>
-          <a className='dropdown-item uncompleted' href='#'>
+          <a className='dropdown-item uncompleted' href='#0'>
             Uncompleted
           </a>
-          <a className='dropdown-item completed' href='#'>
+          <a className='dropdown-item completed' href='#0'>
             Completed
           </a>
         </div>

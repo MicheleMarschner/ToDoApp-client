@@ -141,7 +141,7 @@ body {
   border-color: var(--highlight-color);
 }
 
-.topbar-button {
+.addToDo__button {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -166,14 +166,14 @@ body {
   transition: all 0.5s;
 }
 
-.topbar-button,
-.topbar-button:active,
-.topbar-button:focus {
+.addToDo__button,
+.addToDo__button:active,
+.addToDo__button:focus {
   outline: none;
   color: var(--highlight-color);
 }
 
-.topbar-button:hover {
+.addToDo__button:hover {
   background-color: var(--highlight-color);
   color: white;
   border-color: var(--highlight-color);
@@ -181,7 +181,7 @@ body {
   width: 5.5rem;
 }
 
-.navbar {
+.addToDo__wrapper {
   position: relative;
 }
 
@@ -254,30 +254,62 @@ body {
 
 /*++++++++++++++++++++++++ */
 
-#topbar {
-  min-height: 150px;
-  max-height: 150px;
+#addToDo {
   width: 100vw;
-  transition: all 0.3s;
+  height: 150px;
+  transition: all 1s ease-out;
 }
 
-#topbar.active {
-  margin-top: -150px;
+#addToDo form {
+  animation: fade-in 1s ease-out;
 }
 
-@media (max-width: 768px) {
-  /*#topbar {
-		margin-left: -150px;
-	}
-	#topbar.active {
-		margin-left: 0;
-	}*/
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+  }
+}
+
+#addToDo.active {
+  height: 0px;
+}
+
+#addToDo.active form {
+  animation: fade-out 1s ease-out;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+  }
+}
+
+.none {
+  display: none;
 }
 
 .newToDo__container {
   max-width: 70rem;
   margin: 0 auto;
   margin-top: -1rem;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .newToDo__container > * {
@@ -306,6 +338,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
+}
+
+.ceGmGN {
+  width: 10rem;
 }
 
 #input-4:focus,
@@ -414,7 +450,6 @@ table {
   white-space: nowrap;
   vertical-align: middle;
   width: 90%;
-  min-width: 200px;
   text-align: left;
 }
 

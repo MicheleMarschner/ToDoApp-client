@@ -10,25 +10,25 @@ import { GlobalProvider } from '../Context/GlobalState';
 
 function App() {
   const [collapsed, setCollapsed] = useState(false);
-  const topBar = useRef();
+  const addToDo__container = useRef();
   const toggle = useRef();
-  const toggleTopBar = () => {
-    topBar.current.classList.toggle('active');
-    toggle.current.classList.toggle('collapsed');
+  const toggleAddToDo__container = () => {
+    addToDo__container.current.classList.toggle('active');
+    addToDo__container.current.classList.toggle('collapsed');
     setCollapsed(!collapsed);
   };
 
   return (
     <GlobalProvider>
       <div>
-        <div id='topbar' ref={topBar}>
-          <AddToDo />
+        <div id='addToDo' ref={addToDo__container}>
+          <AddToDo state={collapsed} />
         </div>
-        <div className='bg-light w-100'>
-          <div className='navbar ' onClick={toggleTopBar}>
+        <div id='test' className='bg-light w-100'>
+          <div className='addToDo__wrapper' onClick={toggleAddToDo__container}>
             <button
-              id='topbarCollapse'
-              className='topbar-button d-flex align-items-end justify-content-center'
+              id='addToDo__containerCollapse'
+              className='addToDo__button d-flex align-items-end justify-content-center'
               type='button'
               ref={toggle}
             >

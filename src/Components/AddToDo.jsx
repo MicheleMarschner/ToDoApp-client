@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useRef, useState, useContext, useEffect } from 'react';
 import { GlobalContext } from '../Context/GlobalState';
 import { FaPlus } from 'react-icons/fa';
 import { DatePicker } from 'react-rainbow-components';
@@ -7,10 +7,20 @@ import './Styling/floatingLabel.css';
 
 const initialState = { date: new Date() };
 
-export default function AddToDo() {
+export default function AddToDo({ state }) {
   const [newToDo, setNewToDo] = useState({});
   const [dueDate, setdueDate] = useState(initialState);
   const { addToDo } = useContext(GlobalContext);
+
+  const form = useRef();
+
+  useEffect(() => {
+    state
+      ? setTimeout(() => {
+          form.current.classList.toggle('none');
+        }, 800)
+      : form.current.classList.toggle('none');
+  }, [state]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -29,8 +39,8 @@ export default function AddToDo() {
     setNewToDo({ ...newToDo, [name]: newValue });
   };
   return (
-    <form className='pt-3  w-100' onSubmit={handleSubmit}>
-      <div className='newToDo__container d-flex align-items-end justify-content-center w-100 px-5'>
+    <form className='pt-3  w-100 none' onSubmit={handleSubmit} ref={form}>
+      <div className='newToDo__container w-100 px-5'>
         <FloatingLabelInput
           placeholder='Enter a title'
           name='title'
@@ -50,7 +60,6 @@ export default function AddToDo() {
             minDate={new Date(1900, 0, 4)}
             maxDate={new Date(2020, 9, 1)}
             onChange={value => setdueDate({ date: value })}
-            style={{ width: '10rem' }}
           />
         </div>
         <button

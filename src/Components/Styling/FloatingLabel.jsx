@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // create a floating label input
 
 export default function FloatingLabelInput({
@@ -12,13 +12,17 @@ export default function FloatingLabelInput({
   const [stateLabel, setStateLabel] = useState({ className: '' });
   const [stateError, setStateError] = useState({ className: '' });
 
+  useEffect(() => {
+    value
+      ? setStateLabel({ className: 'on' })
+      : setStateLabel({ className: '' });
+  }, [value]);
+
   const handleInput = e => {
     if (e.target.value !== '') {
-      setStateLabel({ className: 'on' });
       setStateError({ className: '' });
       callback(e.target.name, e.target.value);
     } else {
-      setStateLabel({ className: '' });
       callback(e.target.name, e.target.value);
     }
   };

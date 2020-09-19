@@ -18,7 +18,6 @@ export default function Quote() {
         },
       };
       const res = await axios.get('https://quotes.rest/qod', options);
-      console.log(res.data.contents.quotes[0]);
       setQuote(res.data.contents.quotes[0]);
       setLoading(false);
     } catch (err) {
@@ -31,16 +30,16 @@ export default function Quote() {
       {loading ? (
         <Spinner />
       ) : (
-        <div class='card post-preview post-preview-featured lift my-5'>
-          <div class='card-body'>
-            <div class='pt-2'>
-              <h5 class='card-title text-center'>"</h5>
-              <p class='card-text text-center'>{quote.quote}</p>
+        <div className='card post-preview post-preview-featured lift my-5'>
+          <div className='card-body'>
+            <div className='pt-2'>
+              <h5 className='card-title text-center'>"</h5>
+              <p className='card-text text-center'>{quote.quote}</p>
             </div>
             <hr />
-            <div class='post-preview-meta'>
-              <div class='post-preview-meta-details text-right'>
-                <div class='post-preview-meta-details-name'>
+            <div className='post-preview-meta'>
+              <div className='post-preview-meta-details text-right'>
+                <div className='post-preview-meta-details-name'>
                   <i>{quote.author}</i>
                 </div>
               </div>

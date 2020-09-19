@@ -44,6 +44,7 @@ export default function ToDo({ toDo }) {
           />
           <label
             contentEditable='true'
+            suppressContentEditableWarning={true}
             name='title'
             onInput={e => handleFocusOut(e)}
             onMouseEnter={() => setShowIconTitle(true)}
@@ -70,7 +71,7 @@ export default function ToDo({ toDo }) {
             data-target={`#Collapse${toDo._id}`}
             aria-expanded='false'
             aria-controls='Collapse'
-            href='#'
+            href='#0'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -98,6 +99,7 @@ export default function ToDo({ toDo }) {
         <div id='text' className='card-body border-bottom bg-primary-soft'>
           <label
             contentEditable='true'
+            suppressContentEditableWarning={true}
             name='text'
             onInput={e => handleFocusOut(e)}
             onMouseEnter={() => setShowIconText(true)}

@@ -9,7 +9,7 @@ export default function Layout() {
     <div className='row bg-light vh-100 m-0'>
       <div className='col-lg-4 col-xs-12'>
         <Header />
-        <div className='row'>
+        <div className='dashboard row'>
           <div className='col-lg-12 col-sm-6 d-flex align-items-center justify-content-center'>
             {' '}
             <Weather />
