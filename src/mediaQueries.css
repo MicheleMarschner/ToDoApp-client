@@ -1,3 +1,5 @@
+/* adds responsiveness for different devices */
+
 /* Bigger Laptop */
 @media (max-width: 1800px) {
   .accordion {

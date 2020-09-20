@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// create a floating label input
 
+//creates reusable FloatingLabel Input Component with Error Message
 export default function FloatingLabelInput({
   placeholder,
   name,
@@ -12,12 +12,14 @@ export default function FloatingLabelInput({
   const [stateLabel, setStateLabel] = useState({ className: '' });
   const [stateError, setStateError] = useState({ className: '' });
 
+  //determines if input contains a value and therefore a floating label or a placeholder is required
   useEffect(() => {
     value
       ? setStateLabel({ className: 'on' })
       : setStateLabel({ className: '' });
   }, [value]);
 
+  //handles Input changes and transforms placeholder into floating label on top
   const handleInput = e => {
     if (e.target.value !== '') {
       setStateError({ className: '' });
@@ -27,6 +29,7 @@ export default function FloatingLabelInput({
     }
   };
 
+  //handles required input field by displaying red error message when left without a value
   const handleFocusOut = e => {
     if (required && e.target.value === '') {
       setStateError({ className: 'errorInput' });

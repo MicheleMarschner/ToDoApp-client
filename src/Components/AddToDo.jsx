@@ -2,9 +2,11 @@ import React, { useRef, useState, useContext, useEffect } from 'react';
 import { GlobalContext } from '../Context/GlobalState';
 import { FaPlus } from 'react-icons/fa';
 import { DatePicker } from 'react-rainbow-components';
+
 import FloatingLabelInput from './Styling/FloatingLabel';
 import './Styling/floatingLabel.css';
 
+//sets initial date of the datePicker input to today
 const initialState = { date: new Date() };
 
 export default function AddToDo({ state }) {
@@ -12,8 +14,8 @@ export default function AddToDo({ state }) {
   const [dueDate, setdueDate] = useState(initialState);
   const { addToDo } = useContext(GlobalContext);
 
+  //manages fade-in/-out animation when slider button gets toggled and slider expands/collapses
   const form = useRef();
-
   useEffect(() => {
     state
       ? setTimeout(() => {
@@ -22,6 +24,7 @@ export default function AddToDo({ state }) {
       : form.current.classList.toggle('none');
   }, [state]);
 
+  //handles submit of the , incl. validation, and resets the state afterwards
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -35,9 +38,12 @@ export default function AddToDo({ state }) {
     setNewToDo({});
     setdueDate(initialState);
   };
+
+  //handles changes in one of the Input fields and modifies the local state
   const handleFormChange = (name, newValue) => {
     setNewToDo({ ...newToDo, [name]: newValue });
   };
+
   return (
     <form className='pt-3  w-100 none' onSubmit={handleSubmit} ref={form}>
       <div className='newToDo__container w-100 px-5'>

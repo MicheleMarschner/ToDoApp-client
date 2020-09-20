@@ -9,10 +9,17 @@ export default function ToDoContainer() {
   const { toDos, getToDos, loading, deleteAll } = useContext(GlobalContext);
   const [filter, setFilter] = useState('All');
 
-  useEffect(() => {
-    setTimeout(() => getToDos(), 1000);
-  }, [toDos]);
+  //fetches all toDo items from own Api / Mongodb database when component gets mounted
+  useEffect(
+    () => {
+      setTimeout(() => getToDos(), 1000);
+    },
+    [
+      /*toDos*/
+    ]
+  );
 
+  //maps and renders single toDo items as soon as they are put into the local state after the api call
   const renderToDos = toDos => {
     if (loading) return <Spinner />;
     return toDos
@@ -20,6 +27,7 @@ export default function ToDoContainer() {
       .map(item => <ToDo toDo={item} key={item._id} />);
   };
 
+  //manages filter options in the dropdown menu
   const filterOptions = {
     All: () => true,
     Uncompleted: item => !item.isCompleted,

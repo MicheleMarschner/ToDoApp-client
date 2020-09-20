@@ -14,10 +14,13 @@ import axios from 'axios';
 export default function Weather() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  //fetches weather data when component gets mounted
   useEffect(() => {
     getWeather();
   }, []);
 
+  //gets weather data from third party weather api and puts the formatted data into the local state
   const getWeather = async () => {
     try {
       const { coords } = await getCurrentPosition();
@@ -31,6 +34,7 @@ export default function Weather() {
     }
   };
 
+  //determines weather icon for the dashboard based on fetched data
   const weatherIcon = weather => {
     switch (weather) {
       case 'Sun':

@@ -1,3 +1,4 @@
+/***********             Global              ************/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto:wght@400;700&display=swap');
 :root {
   --blue: #007bff;
@@ -108,7 +109,7 @@ body {
   color: var(--primary-color);
 }
 
-/*++++++++++++++++++++++++ */
+/***********             form              ************/
 
 .form-control:focus {
   color: #686e73;
@@ -118,74 +119,7 @@ body {
   box-shadow: 0 0 0 0.0625rem var(--primary-color);
 }
 
-/*++++++++++++++++++++++++ */
-
-.icon-button {
-  border-radius: 2rem;
-  border-color: var(--highlight-color);
-  border: solid;
-  margin: 0 auto;
-  background-color: transparent;
-}
-
-.icon-button,
-.icon-button:active,
-.icon-button:focus {
-  outline: none;
-  color: var(--highlight-color);
-}
-
-.icon-button:hover {
-  background-color: var(--highlight-color);
-  color: white;
-  border-color: var(--highlight-color);
-}
-
-.addToDo__button {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  outline: none;
-  border: inset 2px solid var(--highlight-color);
-  color: var(--highlight-color);
-  text-align: center;
-  font-size: 1rem;
-  padding-bottom: 1em;
-  height: 6rem;
-  width: 2rem;
-  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.2);
-
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  cursor: pointer;
-  z-index: 11;
-
-  transition: all 0.5s;
-}
-
-.addToDo__button,
-.addToDo__button:active,
-.addToDo__button:focus {
-  outline: none;
-  color: var(--highlight-color);
-}
-
-.addToDo__button:hover {
-  background-color: var(--highlight-color);
-  color: white;
-  border-color: var(--highlight-color);
-  height: 4.5rem;
-  width: 5.5rem;
-}
-
-.addToDo__wrapper {
-  position: relative;
-}
-
-/*++++++++++++++++++++++++ */
+/***********             button              ************/
 
 .btn-lg,
 .btn-group-lg > .btn {
@@ -252,12 +186,165 @@ body {
   box-shadow: 0 0 0 0.2rem var(--primary-color);
 }
 
-/*++++++++++++++++++++++++ */
+/***********             primary button with icon              ************/
+
+.icon-button {
+  border-radius: 2rem;
+  border-color: var(--highlight-color);
+  border: solid;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.icon-button,
+.icon-button:active,
+.icon-button:focus {
+  outline: none;
+  color: var(--highlight-color);
+}
+
+.icon-button:hover {
+  background-color: var(--highlight-color);
+  color: white;
+  border-color: var(--highlight-color);
+}
+
+/********************     Global ------- Spinner       **********************/
+
+.hJtphO > div:nth-child(1),
+.hJtphO > div:nth-child(2),
+.hJtphO > div:nth-child(3),
+.hJtphO > div:nth-child(4),
+.hJtphO > div:nth-child(5),
+.hJtphO > div:nth-child(6),
+.hJtphO > div:nth-child(7),
+.hJtphO > div:nth-child(8) {
+  color: var(--primary-color) !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+.hJtphO {
+  width: 4rem !important;
+  height: 4rem !important;
+}
+
+/***********        Component: App -------- Top slider        ************/
+
+.addToDo__button {
+  box-sizing: border-box;
+  /*padding: 0;
+  margin: 0;*/
+  outline: none;
+  /* border: inset 2px solid var(--highlight-color);*/
+  color: var(--highlight-color);
+  text-align: center;
+  font-size: 1rem;
+  /* padding-bottom: 1em;
+  height: 5rem;
+  width: 2rem;*/
+  /*
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);*/
+
+  cursor: pointer;
+  z-index: 11;
+
+  display: block;
+  width: 250px;
+  margin: 20px auto;
+  padding: 10px;
+
+  position: relative;
+  /*transition: all 0.5s;*/
+  transition: all 250ms ease-out;
+  transform-style: flat;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.addToDo__button:before,
+.addToDo__button:after {
+  content: '';
+  position: absolute;
+  z-index: 9;
+  transition: all 250ms ease-out;
+}
+
+/*
+.addToDo__button,
+.addToDo__button:active,
+.addToDo__button:focus {
+  outline: none;
+  color: var(--highlight-color);
+}
+
+.addToDo__button:hover {
+  background-color: var(--highlight-color);
+  color: white;
+  border-color: var(--highlight-color);
+  height: 4.5rem;
+  width: 5.5rem;
+}*/
+
+.addToDo__button--paper {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(128, 128, 128, 0.1) inset;
+  border-color: #dedede;
+}
+
+.addToDo__button--paper-curl:before,
+.addToDo__button--paper-curl:after {
+  right: 10px;
+  width: 50%;
+  height: 55%;
+  max-width: 200px;
+  max-height: 100px;
+}
+
+.addToDo__button--paper-curl:before {
+  top: 12px;
+  box-shadow: 1px -4px 12px rgba(31, 31, 31, 0.6);
+}
+
+.addToDo__button--paper-curl:after {
+  bottom: 12px;
+  box-shadow: 1px 4px 12px rgba(31, 31, 31, 0.6);
+}
+
+.addToDo__button--paper-curl:hover {
+  right: 0;
+  border-radius: 0 3% 3% 0 / 0% 50% 50% 0;
+}
+
+.addToDo__button--paper-curl:hover:before {
+  box-shadow: 10px -4px 12px rgba(31, 31, 31, 0.8);
+  transform: skew(-8deg) rotate(-3deg);
+}
+
+.addToDo__button--paper-curl:hover:after {
+  box-shadow: 10px 4px 12px rgba(31, 31, 31, 0.8);
+  transform: skew(8deg) rotate(3deg);
+}
+
+.addToDo__wrapper {
+  position: relative;
+}
+
+/***********             Component: addToDo             ************/
 
 #addToDo {
   width: 100vw;
   height: 150px;
   transition: all 1s ease-out;
+  border-radius: 0 0 4px 4px;
+}
+
+.shadow {
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset !important;
 }
 
 #addToDo form {
@@ -320,7 +407,7 @@ body {
   padding-right: 1rem;
 }
 
-/********************     DatePicker       ****************************/
+/***********             Component: addToDo ----- DatePicker            ************/
 
 .rainbow-m-horizontal_xx-large {
   margin-right: 3rem;
@@ -395,27 +482,87 @@ table {
   color: var(--primary-color);
 }
 
-/********************     Spinner               ****************************/
+/***********             Component: ToDoContainer            ************/
 
-.hJtphO > div:nth-child(1),
-.hJtphO > div:nth-child(2),
-.hJtphO > div:nth-child(3),
-.hJtphO > div:nth-child(4),
-.hJtphO > div:nth-child(5),
-.hJtphO > div:nth-child(6),
-.hJtphO > div:nth-child(7),
-.hJtphO > div:nth-child(8) {
-  color: var(--primary-color) !important;
-  width: 1.5rem !important;
-  height: 1.5rem !important;
+.accordion {
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 39, 45, 0.15);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.accordion .card {
+  box-shadow: none;
+}
+.accordion .card .card-header {
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #e3e5e7;
+}
+.accordion .accordion-title {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.accordion .accordion-item .card-header {
+  text-decoration: none;
+}
+.accordion .accordion-item .card-header .accordion-item-heading {
+  width: 100%;
+  margin-bottom: 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  color: #484d52;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.accordion
+  .accordion-item
+  .card-header
+  .accordion-item-heading
+  .accordion-item-heading-arrow {
+  color: #c5c9cc;
+  -webkit-transition: -webkit-transform 0.1s ease-in-out;
+  transition: -webkit-transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
+}
+.accordion
+  .accordion-item
+  .card-header.collapsed
+  .accordion-item-heading
+  .accordion-item-heading-arrow {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
-.hJtphO {
-  width: 4rem !important;
-  height: 4rem !important;
+/***********         Component: ToDoContainer  ----- Filter Dropdown          ************/
+
+.dropdown-menu a:hover {
+  background-color: var(--primary-soft) !important;
 }
 
-/************************************************/
+.dropdown-menu a:focus {
+  background-color: var(--primary-soft) !important;
+  color: black;
+}
+
+.dropdown-menu a.active {
+  background-color: var(--primary-soft) !important;
+}
+
+.bg-primary-soft {
+  background-color: var(--primary-soft) !important;
+}
+
+/***********             Component: ToDo            ************/
 
 .toDo input[type='checkbox'] {
   margin-right: 1rem;
@@ -491,87 +638,7 @@ table {
   text-decoration-color: var(--highlight-color);
 }
 
-/************************************************/
-
-.accordion {
-  box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 39, 45, 0.15);
-  max-height: 80vh;
-  overflow-y: auto;
-}
-.accordion .card {
-  box-shadow: none;
-}
-.accordion .card .card-header {
-  cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #e3e5e7;
-}
-.accordion .accordion-title {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.accordion .accordion-item .card-header {
-  text-decoration: none;
-}
-.accordion .accordion-item .card-header .accordion-item-heading {
-  width: 100%;
-  margin-bottom: 0;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  color: #484d52;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-.accordion
-  .accordion-item
-  .card-header
-  .accordion-item-heading
-  .accordion-item-heading-arrow {
-  color: #c5c9cc;
-  -webkit-transition: -webkit-transform 0.1s ease-in-out;
-  transition: -webkit-transform 0.1s ease-in-out;
-  transition: transform 0.1s ease-in-out;
-  transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
-}
-.accordion
-  .accordion-item
-  .card-header.collapsed
-  .accordion-item-heading
-  .accordion-item-heading-arrow {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-
-/********************************************************/
-
-.dropdown-menu a:hover {
-  background-color: var(--primary-soft) !important;
-}
-
-.dropdown-menu a:focus {
-  background-color: var(--primary-soft) !important;
-  color: black;
-}
-
-.dropdown-menu a:active {
-  background-color: var(--primary-soft) !important;
-}
-
-.bg-primary-soft {
-  background-color: var(--primary-soft) !important;
-}
-
-/******************   weather card    ********************************/
+/******************       component: Weather    ********************************/
 
 .card {
   position: relative;
@@ -604,10 +671,20 @@ table {
   background-color: var(--primary-soft);
 }
 
-/**************************************/
+/******************       component: Quote    ********************************/
 
-.card-img-top {
-  width: 100%;
-  height: 15vw;
-  object-fit: cover;
+.card {
+  position: relative;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 39, 45, 0.15);
+}
+
+.shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+  width: 10rem;
+  fill: var(--primary-color);
+  opacity: 0.3;
+  z-index: 1;
 }

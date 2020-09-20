@@ -1,3 +1,4 @@
+//formats the fetched data from the weather Api to dispaly on the dashboard
 function formatWeather(data) {
   let temperature =
     (((parseInt(data.main.temp) - 32) * 5) / 9).toFixed(2) + ' °C';

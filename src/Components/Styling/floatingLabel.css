@@ -1,4 +1,4 @@
-/*+++++++++++++++++++++  floating label ++++++++++++++++++++++*/
+/***********        Component: FloatingLabel        ************/
 
 .floatingLabelInput {
   display: flex;
@@ -26,7 +26,8 @@
 .floatingLabelInput input {
   font-size: 1rem;
 }
-/*++++++++++++++++++++++++ */
+
+/***********     Error Message     ************/
 
 input.errorInput {
   border-color: var(--danger);

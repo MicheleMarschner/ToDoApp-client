@@ -11,10 +11,12 @@ export default function ToDo({ toDo }) {
   const [showIconTitle, setShowIconTitle] = useState(false);
   const [showIconText, setShowIconText] = useState(false);
 
+  //when local state changes, the changes of the toDo item will get sent via the context/reducer to the backend and stored in the database
   useEffect(() => {
     editToDo(toDo._id, editedToDo);
   }, [editedToDo]);
 
+  //handles the editing of a single todo item (title or text) and stores the changes temp. in the local state
   const handleFocusOut = e => {
     const text = e.target.innerHTML;
     const key = e.target.parentNode.id;
@@ -26,6 +28,7 @@ export default function ToDo({ toDo }) {
     console.log(editedToDo);
   };
 
+  //changes the status of an todo item when its checkbox gets toggled and puts it in local state
   const markAsCompleted = e => {
     toDo.isCompleted = !toDo.isCompleted;
     editToDo(toDo._id, { isCompleted: toDo.isCompleted });
