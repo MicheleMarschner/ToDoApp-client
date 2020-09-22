@@ -240,29 +240,17 @@ body {
   color: var(--highlight-color);
   text-align: center;
   font-size: 1rem;
-  /* padding-bottom: 1em;
+  padding-bottom: 1em;
   height: 5rem;
-  width: 2rem;*/
-  /*
+  width: 2rem;
+
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);*/
+  transform: translate(-50%, -50%);
 
   cursor: pointer;
   z-index: 11;
-
-  display: block;
-  width: 250px;
-  margin: 20px auto;
-  padding: 10px;
-
-  position: relative;
-  /*transition: all 0.5s;*/
-  transition: all 250ms ease-out;
-  transform-style: flat;
-  background-color: #fff;
-  border: 1px solid #ccc;
 }
 
 .addToDo__button:before,
@@ -273,7 +261,6 @@ body {
   transition: all 250ms ease-out;
 }
 
-/*
 .addToDo__button,
 .addToDo__button:active,
 .addToDo__button:focus {
@@ -287,46 +274,6 @@ body {
   border-color: var(--highlight-color);
   height: 4.5rem;
   width: 5.5rem;
-}*/
-
-.addToDo__button--paper {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
-    0 0 40px rgba(128, 128, 128, 0.1) inset;
-  border-color: #dedede;
-}
-
-.addToDo__button--paper-curl:before,
-.addToDo__button--paper-curl:after {
-  right: 10px;
-  width: 50%;
-  height: 55%;
-  max-width: 200px;
-  max-height: 100px;
-}
-
-.addToDo__button--paper-curl:before {
-  top: 12px;
-  box-shadow: 1px -4px 12px rgba(31, 31, 31, 0.6);
-}
-
-.addToDo__button--paper-curl:after {
-  bottom: 12px;
-  box-shadow: 1px 4px 12px rgba(31, 31, 31, 0.6);
-}
-
-.addToDo__button--paper-curl:hover {
-  right: 0;
-  border-radius: 0 3% 3% 0 / 0% 50% 50% 0;
-}
-
-.addToDo__button--paper-curl:hover:before {
-  box-shadow: 10px -4px 12px rgba(31, 31, 31, 0.8);
-  transform: skew(-8deg) rotate(-3deg);
-}
-
-.addToDo__button--paper-curl:hover:after {
-  box-shadow: 10px 4px 12px rgba(31, 31, 31, 0.8);
-  transform: skew(8deg) rotate(3deg);
 }
 
 .addToDo__wrapper {

@@ -29,7 +29,7 @@ function App() {
           <div className='addToDo__wrapper' onClick={toggleAddToDo__container}>
             <button
               id='addToDo__containerCollapse'
-              className='addToDo__button addToDo__button--paper addToDo__button--paper-curl d-flex align-items-end justify-content-center'
+              className='addToDo__button d-flex align-items-end justify-content-center'
               type='button'
               ref={toggle}
             >
