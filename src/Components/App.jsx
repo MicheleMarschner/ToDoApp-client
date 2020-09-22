@@ -29,16 +29,33 @@ function App() {
           <div className='addToDo__wrapper' onClick={toggleAddToDo__container}>
             <button
               id='addToDo__containerCollapse'
-              className='addToDo__button d-flex align-items-end justify-content-center'
+              className='addToDo__button mouse-scroll d-flex align-items-end justify-content-center'
               type='button'
               ref={toggle}
             >
-              {' '}
-              {collapsed ? (
-                <FaAngleDown style={{ fontSize: '2rem' }} id='arrowDown' />
-              ) : (
-                <FaAngleUp style={{ fontSize: '2rem' }} id='arrowUp' />
-              )}
+              <span class='mouse'>
+                {collapsed ? (
+                  <FaAngleDown
+                    style={{
+                      fontSize: '1.5rem',
+                      '-webkit-animation': 'scroll-down 2s linear infinite',
+                      animation: 'scroll-down 2s linear infinite',
+                    }}
+                    id='arrowDown'
+                    className='mouse-movement'
+                  />
+                ) : (
+                  <FaAngleUp
+                    style={{
+                      fontSize: '1.5rem',
+                      '-webkit-animation': 'scroll-up 2s linear infinite',
+                      animation: 'scroll-up 2s linear infinite',
+                    }}
+                    id='arrowUp'
+                    className='mouse-movement'
+                  />
+                )}
+              </span>
             </button>
           </div>
         </div>

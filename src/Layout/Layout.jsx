@@ -6,7 +6,7 @@ import Quote from '../Components/Quote.jsx';
 
 export default function Layout() {
   return (
-    <div className='row bg-light vh-100 m-0'>
+    <div className='row bg-light vh-100 m-0 pt-5'>
       <div className='col-lg-4 col-xs-12'>
         <Header />
         <div className='dashboard row'>
