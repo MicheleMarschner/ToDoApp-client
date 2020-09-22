@@ -1,6 +1,8 @@
 
 # ToDo App - Client (MERN Stack)
 
+![ToDoApp-picture](https://user-images.githubusercontent.com/49597398/93879455-04b1fe80-fcdc-11ea-8403-64e656944ad3.png)
+
 ## Goal
 Creating a Full-Stack App that successfully integrates frontend technologies with a customized backend and third party apis. 
 
